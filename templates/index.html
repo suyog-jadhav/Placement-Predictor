@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Placement Predictor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Student Placement Predictor</h1>
+        <div class="card">
+            <form id="predictionForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="cgpa">CGPA</label>
+                        <input type="number" id="cgpa" step="0.1" min="0" max="10" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="internships">Number of Internships</label>
+                        <input type="number" id="internships" min="0" max="5" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="projects">Number of Projects</label>
+                        <input type="number" id="projects" min="0" max="10" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="workshops">Workshops/Certifications</label>
+                        <input type="number" id="workshops" min="0" max="10" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="aptitude">Aptitude Test Score</label>
+                        <input type="number" id="aptitude" min="0" max="100" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="softSkills">Soft Skills Rating</label>
+                        <input type="number" id="softSkills" step="0.1" min="0" max="5" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="extracurricular">Extracurricular Activities</label>
+                        <select id="extracurricular" required>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="training">Placement Training</label>
+                        <select id="training" required>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="ssc">SSC Marks (%)</label>
+                        <input type="number" id="ssc" min="0" max="100" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="hsc">HSC Marks (%)</label>
+                        <input type="number" id="hsc" min="0" max="100" required>
+                    </div>
+                </div>
+
+                <button type="submit">Predict Placement</button>
+            </form>
+        </div>
+
+        <div id="result" class="hidden">
+            <div class="result-card">
+                <h2>Prediction Result</h2>
+                <p id="prediction-text"></p>
+                <div id="prediction-score"></div>
+            </div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
