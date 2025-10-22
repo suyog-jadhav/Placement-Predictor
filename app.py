@@ -1,16 +1,16 @@
 from flask import Flask, request, jsonify, render_template
 import pickle
 import pandas as pd
-from sklearn.preprocessing import StandardScaler
 import logging
 import os
 from waitress import serve
-# Configure logging
+from flask_cors import CORS
+
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-app = Flask(__name__)
-
+app = Flask(__name__, static_folder='static', template_folder='templates')
+CORS(app) 
 # Load the model and scaler
 try:
     logger.info("Loading model and scaler...")
@@ -81,4 +81,5 @@ def predict():
     
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0', port=port)
+    # Use waitress in this script if you run `python app.py` directly.
+    serve(app, host='0.0.0.0', port=port)
