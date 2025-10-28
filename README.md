@@ -18,7 +18,7 @@ A machine learning web application that predicts student placement probability b
 
 1. Clone the repository
 ```bash
-git clone https://github.com/suyog-jadhav/devl.git
+git clone https://github.com/suyog-jadhav/Placement-Predictor.git
 cd devl
 ```
 
