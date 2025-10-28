@@ -27,7 +27,6 @@ except Exception as e:
     logger.error(f"Error loading model: {str(e)}")
     exit(1)
 
-# ...rest of your existing app.py code...
 
 @app.route('/')
 def home():
@@ -81,5 +80,4 @@ def predict():
     
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
-    # Use waitress in this script if you run `python app.py` directly.
     serve(app, host='0.0.0.0', port=port)
